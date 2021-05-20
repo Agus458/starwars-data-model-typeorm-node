@@ -24,41 +24,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.User = void 0;
+exports.Character = void 0;
+var Resource_1 = require("./Resource");
 var typeorm_1 = require("typeorm");
-var Favourite_1 = require("./Favourite");
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User() {
+var Planet_1 = require("./Planet");
+var Character = /** @class */ (function (_super) {
+    __extends(Character, _super);
+    function Character() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn(),
+        typeorm_1.Column(),
         __metadata("design:type", Number)
-    ], User.prototype, "id");
+    ], Character.prototype, "heigth");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], Character.prototype, "mass");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "firstName");
+    ], Character.prototype, "hairColor");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "lastName");
+    ], Character.prototype, "skinColor");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "email");
+    ], Character.prototype, "eyeColor");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "password");
+    ], Character.prototype, "gender");
     __decorate([
-        typeorm_1.OneToMany(function () { return Favourite_1.Favourite; }, function (favourite) { return favourite.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "favourites");
-    User = __decorate([
+        typeorm_1.OneToOne(function () { return Planet_1.Planet; }),
+        typeorm_1.JoinColumn(),
+        __metadata("design:type", Planet_1.Planet)
+    ], Character.prototype, "homePlanet");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Date)
+    ], Character.prototype, "birthYear");
+    Character = __decorate([
         typeorm_1.Entity()
-    ], User);
-    return User;
-}(typeorm_1.BaseEntity));
-exports.User = User;
+    ], Character);
+    return Character;
+}(Resource_1.Resource));
+exports.Character = Character;

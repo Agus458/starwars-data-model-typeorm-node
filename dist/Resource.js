@@ -24,41 +24,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.User = void 0;
+exports.Resource = void 0;
 var typeorm_1 = require("typeorm");
-var Favourite_1 = require("./Favourite");
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User() {
+var Resource = /** @class */ (function (_super) {
+    __extends(Resource, _super);
+    function Resource() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], User.prototype, "id");
+    ], Resource.prototype, "id");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "firstName");
+    ], Resource.prototype, "name");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "lastName");
+    ], Resource.prototype, "description");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "email");
-    __decorate([
-        typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], User.prototype, "password");
-    __decorate([
-        typeorm_1.OneToMany(function () { return Favourite_1.Favourite; }, function (favourite) { return favourite.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "favourites");
-    User = __decorate([
-        typeorm_1.Entity()
-    ], User);
-    return User;
+    ], Resource.prototype, "img");
+    return Resource;
 }(typeorm_1.BaseEntity));
-exports.User = User;
+exports.Resource = Resource;

@@ -1,0 +1,26 @@
+import { BaseEntity, PrimaryGeneratedColumn, ManyToOne, Entity, Column, OneToOne, JoinColumn } from "typeorm";
+import { User } from "./User";
+import { Resource } from "./Resource";
+import { Planet } from "./Planet";
+import { Character } from "./Character";
+
+@Entity()
+export class Favourite extends BaseEntity {
+    
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @ManyToOne(() => User, user => user.favourites)
+    user: User;
+
+    @Column()
+    type: string;
+
+    @OneToOne(() => Planet)
+    @JoinColumn()
+    planet: Planet;
+
+    @OneToOne(() => Character)
+    @JoinColumn()
+    character: Character;
+}

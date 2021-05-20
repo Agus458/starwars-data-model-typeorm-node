@@ -24,41 +24,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.User = void 0;
+exports.Planet = void 0;
+var Resource_1 = require("./Resource");
 var typeorm_1 = require("typeorm");
-var Favourite_1 = require("./Favourite");
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User() {
+var Planet = /** @class */ (function (_super) {
+    __extends(Planet, _super);
+    function Planet() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn(),
+        typeorm_1.Column(),
         __metadata("design:type", Number)
-    ], User.prototype, "id");
+    ], Planet.prototype, "diameter");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], Planet.prototype, "rotationPeriod");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], Planet.prototype, "orbitalPeriod");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "firstName");
+    ], Planet.prototype, "gravity");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], Planet.prototype, "population");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "lastName");
+    ], Planet.prototype, "climate");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "email");
+    ], Planet.prototype, "terrain");
     __decorate([
         typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], User.prototype, "password");
-    __decorate([
-        typeorm_1.OneToMany(function () { return Favourite_1.Favourite; }, function (favourite) { return favourite.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "favourites");
-    User = __decorate([
+        __metadata("design:type", Number)
+    ], Planet.prototype, "surfaceWater");
+    Planet = __decorate([
         typeorm_1.Entity()
-    ], User);
-    return User;
-}(typeorm_1.BaseEntity));
-exports.User = User;
+    ], Planet);
+    return Planet;
+}(Resource_1.Resource));
+exports.Planet = Planet;

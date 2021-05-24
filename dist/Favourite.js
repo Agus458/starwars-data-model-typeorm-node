@@ -47,13 +47,11 @@ var Favourite = /** @class */ (function (_super) {
         __metadata("design:type", String)
     ], Favourite.prototype, "type");
     __decorate([
-        typeorm_1.OneToOne(function () { return Planet_1.Planet; }),
-        typeorm_1.JoinColumn(),
+        typeorm_1.ManyToOne(function () { return Planet_1.Planet; }, function (planet) { return planet.favourites; }),
         __metadata("design:type", Planet_1.Planet)
     ], Favourite.prototype, "planet");
     __decorate([
-        typeorm_1.OneToOne(function () { return Character_1.Character; }),
-        typeorm_1.JoinColumn(),
+        typeorm_1.ManyToOne(function () { return Character_1.Character; }, function (character) { return character.favourites; }),
         __metadata("design:type", Character_1.Character)
     ], Favourite.prototype, "character");
     Favourite = __decorate([

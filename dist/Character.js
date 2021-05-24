@@ -28,6 +28,7 @@ exports.Character = void 0;
 var Resource_1 = require("./Resource");
 var typeorm_1 = require("typeorm");
 var Planet_1 = require("./Planet");
+var Favourite_1 = require("./Favourite");
 var Character = /** @class */ (function (_super) {
     __extends(Character, _super);
     function Character() {
@@ -58,14 +59,17 @@ var Character = /** @class */ (function (_super) {
         __metadata("design:type", String)
     ], Character.prototype, "gender");
     __decorate([
-        typeorm_1.OneToOne(function () { return Planet_1.Planet; }),
-        typeorm_1.JoinColumn(),
+        typeorm_1.ManyToOne(function () { return Planet_1.Planet; }, function (planet) { return planet.characters; }),
         __metadata("design:type", Planet_1.Planet)
     ], Character.prototype, "homePlanet");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", Date)
     ], Character.prototype, "birthYear");
+    __decorate([
+        typeorm_1.OneToMany(function () { return Favourite_1.Favourite; }, function (favourite) { return favourite.character; }),
+        __metadata("design:type", Array)
+    ], Character.prototype, "favourites");
     Character = __decorate([
         typeorm_1.Entity()
     ], Character);

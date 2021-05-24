@@ -16,11 +16,9 @@ export class Favourite extends BaseEntity {
     @Column()
     type: string;
 
-    @OneToOne(() => Planet)
-    @JoinColumn()
+    @ManyToOne(() => Planet, planet => planet.favourites)
     planet: Planet;
 
-    @OneToOne(() => Character)
-    @JoinColumn()
+    @ManyToOne(() => Character, character => character.favourites)
     character: Character;
 }
